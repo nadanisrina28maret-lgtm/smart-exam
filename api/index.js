@@ -4,13 +4,14 @@ const crypto = require('crypto');
 const { makeApi } = require('../lib/api.js');
 const { makeStore } = require('../lib/supabase.js');
 const { ensureSchema } = require('../lib/autosetup.js');
+const env = require('../lib/env.js');
 
 const ALLOWED = ['hasPin', 'setupPin', 'login', 'changePin', 'uploadImage', 'createExam', 'updateExam', 'deleteExam', 'listExams', 'getExamFull',
   'listResults', 'getResultDetail', 'exportData', 'allowRetake', 'gradeManual', 'deleteResult', 'peekExam', 'joinExam', 'saveProgress', 'submitExam'];
 
 function config() {
-  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = env.supabaseUrl();
+  const key = env.supabaseKey();
   return { url, key, ok: !!(url && key) };
 }
 
