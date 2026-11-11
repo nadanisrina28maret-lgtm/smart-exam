@@ -1,0 +1,8 @@
+{
+  "name": "smart-exam",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Smart Exam — ujian online dengan pembaca soal Word/Excel (Vercel + Supabase)",
+  "engines": { "node": ">=18" },
+  "dependencies": { "pg": "^8.13.0" }
+}
